@@ -70,6 +70,7 @@ With the portal, it should be possible to respond to support requests such as:
 
 Possible candidates:
 - [Sbomify](https://sbomify.com/)
+- [dependency track](https://dependencytrack.org/)
 
 ## Affected repositories
 
