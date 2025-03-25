@@ -1,0 +1,44 @@
+{
+    "high_priority": [
+        "https://github.com/NethServer/ns8-core",
+        "https://github.com/NethServer/ns8-metrics",
+        "https://github.com/NethServer/ns8-samba",
+        "https://github.com/NethServer/ns8-traefik",
+        "https://github.com/NethServer/ns8-mail",
+        "https://github.com/NethServer/ns8-webtop",
+        "https://github.com/NethServer/ns8-ejabberd",
+        "https://github.com/NethServer/ns8-imapsync",
+        "https://github.com/NethServer/ns8-crowdsec",
+        "https://github.com/NethServer/ns8-nethsecurity-controller",
+        "https://github.com/NethServer/ns8-ldapproxy",
+        "https://github.com/NethServer/ns8-user-manager",
+        "https://github.com/NethServer/ns8-loki",
+        "https://github.com/NethServer/ns8-nextcloud",
+        "https://github.com/NethServer/ns8-mattermost",
+        "https://github.com/NethServer/ns8-netdata",
+        "https://github.com/NethServer/ns8-dnsmasq",
+        "https://github.com/NethServer/ns8-piler",
+        "https://github.com/NethServer/ns8-openldap",
+        "https://github.com/nethesis/ns8-nethvoice-proxy",
+        "https://github.com/nethesis/ns8-nethvoice"
+    ],
+    "medium_priority": [
+        "https://github.com/NethServer/ns8-prometheus",
+        "https://github.com/NethServer/ns8-webserver",
+        "https://github.com/NethServer/ns8-postgresql",
+        "https://github.com/NethServer/ns8-mariadb",
+        "https://github.com/NethServer/ns8-roundcubemail",
+        "https://github.com/NethServer/ns8-node_exporter",
+        "https://github.com/NethServer/ns8-grafana"
+    ],
+    "low_priority": [
+        "https://github.com/NethServer/ns8-sogo",
+        "https://github.com/NethServer/ns8-wordpress",
+        "https://github.com/NethServer/ns8-dokuwiki",
+        "https://github.com/NethServer/ns8-collabora",
+        "https://github.com/NethServer/ns8-passbolt",
+        "https://github.com/NethServer/ns8-minio",
+        "https://github.com/NethServer/ns8-kickstart",
+        "https://github.com/NethServer/ns8-porthos"
+    ]
+}
