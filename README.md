@@ -160,3 +160,8 @@ Extra services, not container-based:
 - [Windmill](https://github.com/nethesis/windmill)
 - [Legacy Backupd](https://github.com/nethesis/legacy_backupd) (private)
 - [Yomi Proxy](https://github.com/nethesis/yomi-proxy) (private)
+
+## External resources
+
+- [NethServer development process handbook](https://handbook.nethserver.org/)
+- [ns8-release-module - GitHub CLI Extension](https://github.com/NethServer/gh-ns8-release-module)
