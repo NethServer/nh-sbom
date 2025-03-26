@@ -7,6 +7,21 @@ Contents:
 - [Work plan](#work-plan)
 - [Affected repositories](#affected-repositories)
 
+## Tools and file formats
+
+During the release phase of a version, when a repository is tagged with a stable version (see conventional commit), it is necessary to:
+
+- generate an SBOM (Software Bill of Materials)
+- publish the SBOM in  as an attachment to the release
+
+Chosen tool: [Trivy](https://trivy.dev/latest/)
+
+The SBOM must be generated in three formats:
+
+- **Standard CVE SARIF**: Integrated into GitHub code scanning.
+- **GitHub Dependency Graph format**: Serves as a snapshot under *Insights*, does not maintain a history.
+- **CycloneDX**: Must be included in the release with a name ending in `.cdx.json`
+
 ## Work plan
 
 ### Objective 1: Inventory of EOL distributions
@@ -96,6 +111,7 @@ Main repositories:
 - [Dnsmasq](https://github.com/NethServer/ns8-dnsmasq)
 - [Piler](https://github.com/NethServer/ns8-piler)
 - [OpenLDAP](https://github.com/NethServer/ns8-openldap)
+- [Metrics](https://github.com/NethServer/ns8-metrics)
 
 Main repositories, not container-based:
 
