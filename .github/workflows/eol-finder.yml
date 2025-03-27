@@ -1,0 +1,34 @@
+name: Run eol-finder
+
+on:
+  schedule:
+    - cron: '2 1 * * *'  # Runs every night at 1:02
+  workflow_dispatch:
+
+permissions:
+  security-events: write
+
+jobs:
+  run-eol-finder:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install requests
+
+    - name: Run eol-finder script
+      run: |
+        cd scripts
+        ./eol-finder.py repositories.json
+      env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
