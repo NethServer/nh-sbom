@@ -24,23 +24,15 @@ The SBOM must be generated in three formats:
 
 ## Work plan
 
-### Objective 1: Inventory of EOL distributions
+### Objective 1: Inventory of EOL distributions (DONE)
 
-1. Implement a GitHub Action for NS8, based on a common action to generate and upload the SBOM.
-   Chosen engine to generate the SBOM: Syft
-   The action must upload the SBOM:
-   - in the repository release as an attachment in JSON and SARIF format
-   - in the repository dependency graph
+1. A GitHub Action has been implemented for NS8 to generate and upload the SBOM. Engine: [Trivy](https://trivy.dev).
+   The action uploads the SBOM:  
+     - As an attachment in CyCloneDX and SARIF format in the repository release.  
+     - To the repository dependency graph.  
 
-   Use syft to generate the SBOM.
-   Allow targeting both directories (for NethSecurity and UIs) or a container image.
-
-   Create 2 separate actions: one for generating the SBOM, and one for uploading and analyzing.
-
-2. Implement a scraper as a GitHub Action that reads EOL information from an SBOM.
-   For each EOL distribution, create an issue with the information.
-   For each non-EOL distribution, create an issue reporting the end-of-support date using the [Endoflife](https://endoflife.date/docs/api) API.
-   Evaluate integrating the issues within a project.
+2. A scraper has been implemented as a GitHub Action to read EOL information from an SBOM.  
+   For each EOL distribution, a new security advisory is created in this repository.
 
 ### Objective 2: Rationalization of dependencies
 
@@ -54,7 +46,7 @@ To do:
    - if there are tests, automatically merge all versions (to be implemented as an override on individual projects)
 3. Create a common configuration file for Renovate for all non-NS8 projects, such as UIs
 
-To be done by: March 14
+To be done by: May 2025
 
 ### Objective 3: Integration with the development cycle
 
