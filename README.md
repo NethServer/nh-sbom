@@ -117,7 +117,6 @@ Low priority applications:
 - [PostgreSQL](https://github.com/NethServer/ns8-postgresql)
 - [MariaDB](https://github.com/NethServer/ns8-mariadb)
 - [Roundcube Mail](https://github.com/NethServer/ns8-roundcubemail)
-- [Node Exporter](https://github.com/NethServer/ns8-node_exporter)
 - [Grafana](https://github.com/NethServer/ns8-grafana)
 
 Applications with very low priority:
