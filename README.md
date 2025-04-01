@@ -164,9 +164,8 @@ Extra services, not container-based:
 
 ### Other projects
 
-- [Windmill](https://github.com/nethesis/windmill)
-- [Legacy Backupd](https://github.com/nethesis/legacy_backupd) (private)
-- [Yomi Proxy](https://github.com/nethesis/yomi-proxy) (private)
+- [Windmill](https://github.com/nethesis/windmill) (empty SBOM because no go.mod)
+- [Legacy Backupd](https://github.com/nethesis/legacy_backupd) (private, does not support GH security advisory, empty SBOM because no go.mod)
 
 ## External resources
 
