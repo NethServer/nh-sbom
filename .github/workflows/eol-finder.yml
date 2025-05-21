@@ -29,6 +29,6 @@ jobs:
     - name: Run eol-finder script
       run: |
         cd scripts
-        ./eol-finder.py repositories.json
+        ./eol-finder.py ns8-repositories.json
       env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

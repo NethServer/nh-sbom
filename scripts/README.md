@@ -9,7 +9,7 @@ Then it searches the SBOM for distributions in End of Life (EOL). If any is foun
 
 ### Usage
 
-You can run the following command to generate an SBOM:
+You can run the following command to generate a SBOM:
 
 ```bash
 podman run --rm docker.io/aquasec/trivy image ghcr.io/nethserver/nethsecurity-vpn:latest -f json > sbom.json
