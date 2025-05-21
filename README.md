@@ -127,7 +127,6 @@ Applications with very low priority:
 - [Collabora](https://github.com/NethServer/ns8-collabora)
 - [Passbolt](https://github.com/NethServer/ns8-passbolt)
 - [MinIO](https://github.com/NethServer/ns8-minio)
-- [Kickstart](https://github.com/NethServer/ns8-kickstart)
 - [Porthos](https://github.com/NethServer/ns8-porthos)
 
 ### NethVoice

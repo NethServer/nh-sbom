@@ -1,5 +1,15 @@
 {
-    "high_priority": [
+    "nethsecurity": [
+        "https://github.com/nethserver/nethsecurity",
+        "https://github.com/nethserver/nethsecurity-controller",
+        "https://github.com/nethserver/nethsecurity-ui",
+        "https://github.com/NethServer/python3-nethsec"
+    ],
+    "infra": [
+        "https://github.com/nethesis/parceler",
+        "https://github.com/nethesis/icaro"
+    ],
+    "ns8": [
         "https://github.com/NethServer/ns8-core",
         "https://github.com/NethServer/ns8-metrics",
         "https://github.com/NethServer/ns8-samba",
@@ -19,25 +29,31 @@
         "https://github.com/NethServer/ns8-dnsmasq",
         "https://github.com/NethServer/ns8-piler",
         "https://github.com/NethServer/ns8-openldap",
-        "https://github.com/nethesis/ns8-nethvoice-proxy",
-        "https://github.com/nethesis/ns8-nethvoice"
-    ],
-    "medium_priority": [
         "https://github.com/NethServer/ns8-prometheus",
         "https://github.com/NethServer/ns8-webserver",
         "https://github.com/NethServer/ns8-postgresql",
         "https://github.com/NethServer/ns8-mariadb",
         "https://github.com/NethServer/ns8-roundcubemail",
-        "https://github.com/NethServer/ns8-grafana"
-    ],
-    "low_priority": [
+        "https://github.com/NethServer/ns8-grafana",
         "https://github.com/NethServer/ns8-sogo",
         "https://github.com/NethServer/ns8-wordpress",
         "https://github.com/NethServer/ns8-dokuwiki",
         "https://github.com/NethServer/ns8-collabora",
         "https://github.com/NethServer/ns8-passbolt",
         "https://github.com/NethServer/ns8-minio",
-        "https://github.com/NethServer/ns8-kickstart",
         "https://github.com/NethServer/ns8-porthos"
+    ], 
+    "nethvoice": [
+        "https://github.com/nethesis/nethvoice",
+        "https://github.com/nethesis/nethcti-server",
+        "https://github.com/nethesis/nethvoice-cti",
+        "https://github.com/nethesis/nethvoice-report",
+        "https://github.com/nethesis/phone-island",
+        "https://github.com/nethesis/tancredi",
+        "https://github.com/nethesis/contatta",
+        "https://github.com/nethesis/astproxy",
+        "https://github.com/nethesis/falconieri",
+        "https://github.com/nethesis/ns8-nethvoice-proxy",
+        "https://github.com/nethesis/ns8-nethvoice"
     ]
 }

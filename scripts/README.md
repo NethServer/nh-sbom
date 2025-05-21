@@ -21,4 +21,19 @@ GITHUB_TOKEN=$(gh auth token) ./eol-finder.py sbom.json nethserver nh-sbom
 ```
 
 
-Then use the generated SBOM with the script like this:
+## sbom_uploader.py
+
+The scripts uploads the SBOM to the [Dependency Track](https://dependencytrack.org/) server.
+The script will:
+
+- create top-level projects like "ns8", "nethsecurity" and so on
+- for each repository, create a project with the same name
+- searches the latest release of the repository
+- upload all SBOMs in the release
+
+Please note that the script will preserve only the latest release of the repository and SBOMs.
+
+Usage example:
+```bash
+DEPENDECY_TRACK_TOKEN=xxx GITHUB_TOKEN=$(gh auth token) python3 sbom-upoloader.py --dependency-track-api-url "http://dt.gs.nethserver.net:8081/api/v1" --log-level=INFO --repos-file sbom-repositories.json 
+```
