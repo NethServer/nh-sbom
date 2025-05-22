@@ -21,7 +21,7 @@ GITHUB_TOKEN=$(gh auth token) ./eol-finder.py sbom.json nethserver nh-sbom
 ```
 
 
-## sbom_uploader.py
+## sbom-uploader.py
 
 The scripts uploads the SBOM to the [Dependency Track](https://dependencytrack.org/) server.
 The script will:
@@ -33,7 +33,9 @@ The script will:
 
 Please note that the script will preserve only the latest release of the repository and SBOMs.
 
+### Usage
+
 Usage example:
 ```bash
-DEPENDECY_TRACK_TOKEN=xxx GITHUB_TOKEN=$(gh auth token) python3 sbom-upoloader.py --dependency-track-api-url "http://dt.gs.nethserver.net:8081/api/v1" --log-level=INFO --repos-file sbom-repositories.json 
+DEPENDECY_TRACK_TOKEN=xxx GITHUB_TOKEN=$(gh auth token) python3 sbom-uploader.py --dependency-track-api-url "http://dt.gs.nethserver.net:8081/api/v1" --log-level=INFO --repos-file sbom-repositories.json 
 ```
