@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  run-eol-finder:
+  run-sbom-uploader:
     runs-on: ubuntu-latest
 
     steps:
@@ -28,4 +28,4 @@ jobs:
         DEPENDENCY_TRACK_TOKEN: ${{ secrets.DEPENDENCY_TRACK_TOKEN }}
       run: |
         cd scripts
-        ./sbom-upoloader.py --dependency-track-api-url ${{ vars.DEPENDENCY_TRACK_URL }} --log-level=INFO --repos-file sbom-repositories.json 
+        ./sbom-uploader.py --dependency-track-api-url ${{ vars.DEPENDENCY_TRACK_URL }} --log-level=INFO --repos-file sbom-repositories.json 
