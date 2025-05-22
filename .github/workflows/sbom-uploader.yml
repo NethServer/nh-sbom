@@ -1,0 +1,31 @@
+name: Run sbom-uploader
+on:
+  schedule:
+    - cron: '32 1 * * *'  # Runs every night at 1:32
+  workflow_dispatch:
+
+jobs:
+  run-eol-finder:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install requests
+
+    - name: Run sbom-uploader script
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        DEPENDENCY_TRACK_TOKEN: ${{ secrets.DEPENDENCY_TRACK_TOKEN }}
+      run: |
+        cd scripts
+        ./sbom-upoloader.py --dependency-track-api-url ${{ vars.DEPENDENCY_TRACK_URL }} --log-level=INFO --repos-file sbom-repositories.json 
