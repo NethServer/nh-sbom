@@ -24,7 +24,7 @@ import argparse
 import re
 import logging
 
-DEPENDECY_TRACK_TOKEN = os.environ.get("DEPENDECY_TRACK_TOKEN")
+DEPENDENCY_TRACK_TOKEN = os.environ.get("DEPENDENCY_TRACK_TOKEN")
 GITHUB_TOKEN = os.environ.get("GITHUB_TOKEN")
 DT_API_URL = ""
 logger = None
@@ -77,7 +77,7 @@ def download_asset(asset_url, filename):
 
 def upload_sbom(sbom, project_id):
   url = f"{DT_API_URL}/bom"
-  headers = {"X-Api-Key": DEPENDECY_TRACK_TOKEN}
+  headers = {"X-Api-Key": DEPENDENCY_TRACK_TOKEN}
   files = {
     "bom": (os.path.basename(sbom), open(sbom, "rb"), "application/json")
   }
@@ -94,7 +94,7 @@ def upload_sbom(sbom, project_id):
 
 def get_project(project_name):
   url = f"{DT_API_URL}/project?pageNumber=1&pageSize=10000"
-  headers = {"X-Api-Key": DEPENDECY_TRACK_TOKEN, "Accept": "application/json"}
+  headers = {"X-Api-Key": DEPENDENCY_TRACK_TOKEN, "Accept": "application/json"}
   resp = requests.get(url, headers=headers)
   if resp.status_code != 200:
     return None, None
@@ -107,7 +107,7 @@ def get_project(project_name):
 def create_project(project_name, parent_id=None, version=None, has_children=True):
   url = f"{DT_API_URL}/project"
   headers = {
-    "X-Api-Key": DEPENDECY_TRACK_TOKEN,
+    "X-Api-Key": DEPENDENCY_TRACK_TOKEN,
     "Content-Type": "application/json"
   }
   payload = {
@@ -132,7 +132,7 @@ def create_project(project_name, parent_id=None, version=None, has_children=True
 def update_project_version(project_id, version):
   url = f"{DT_API_URL}/project/{project_id}"
   headers = {
-    "X-Api-Key": DEPENDECY_TRACK_TOKEN,
+    "X-Api-Key": DEPENDENCY_TRACK_TOKEN,
     "Content-Type": "application/json"
   }
   payload = {
@@ -211,8 +211,8 @@ def main():
   global DT_API_URL
   global logger
 
-  if not DEPENDECY_TRACK_TOKEN:
-    print("DEPENDECY_TRACK_TOKEN not found", file=sys.stderr)
+  if not DEPENDENCY_TRACK_TOKEN:
+    print("DEPENDENCY_TRACK_TOKEN not found", file=sys.stderr)
     sys.exit(1)
 
   if not GITHUB_TOKEN:
