@@ -60,6 +60,7 @@ def get_latest_release(owner, repo):
   url = f"https://api.github.com/repos/{owner}/{repo}/releases/latest"
   headers = {"Authorization": f"token {GITHUB_TOKEN}"}
   resp = requests.get(url, headers=headers)
+  logger.debug(f"get_latest_release {owner}/{repo} response code {resp.status_code}")
   if resp.status_code != 200:
     return None
   return resp.json()
@@ -185,7 +186,6 @@ def process_repo(parent_project, repo_url):
     repo_name = repo_name.split("/")[0]
   except Exception:
     return
-  logger.info(f"Processing repository {owner}/{repo_name}")
   release_info = get_latest_release(owner, repo_name)
   if not release_info or release_info.get("tag_name") is None:
     logger.warning(f"No releases found for repository {owner}/{repo_name}")
