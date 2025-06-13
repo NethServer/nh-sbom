@@ -50,7 +50,7 @@ def extract_name(asset_name):
     return name
   # Remove version suffix (e.g., -v1-8-0, -2-16-1-pg16, etc.)
   name = re.sub(r'[-_](v?\d[\w\-\.]*)(-x86-64-generic)?$', '', name)
-  return name.replace("-", ".", count=3)
+  return name.replace("-", ".", 3)
 
 def read_repo_file(repos_file):
   with open(repos_file) as f:
