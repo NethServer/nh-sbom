@@ -84,13 +84,19 @@ def upload_sbom(sbom, project_id):
   data = {
     "project": project_id
   }
-  resp = requests.post(url, headers=headers, files=files, data=data)
-  if resp.status_code != 200:
-    logger.warning(f"Failed to upload SBOM {sbom} to {project_id}: {resp.text}")
-  try:
-    return resp.json()
-  except Exception:
-    return {"error": resp.text}
+  max_retries = 3
+  error = None
+  for attempt in range(max_retries):
+    try:
+      resp = requests.post(url, headers=headers, files=files, data=data, allow_redirects=True, timeout=300)
+      if resp.status_code == 200:
+        return resp.json()
+      else:
+        error = f"HTTP {resp.status_code}: {resp.text}"
+        logger.warning(f"Failed to upload SBOM {sbom} to {project_id} (attempt {attempt + 1}/{max_retries}): {error}")
+    except Exception as e:
+        logger.warning(f"Failed to upload SBOM {sbom} to {project_id} (attempt {attempt + 1}/{max_retries}): {str(e)}")
+  return {"error": error}
 
 def get_project(project_name):
   url = f"{DT_API_URL}/project?pageNumber=1&pageSize=10000"
