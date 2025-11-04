@@ -23,7 +23,8 @@
         "https://github.com/nethesis/parceler",
         "https://github.com/nethesis/icaro",
         "https://github.com/nethesis/windmill",
-        "https://github.com/nethesis/legacy_backupd"
+        "https://github.com/nethesis/legacy_backupd",
+        "https://github.com/nethserver/my"
     ],
     "ns8": [
         "https://github.com/NethServer/ns8-core",
