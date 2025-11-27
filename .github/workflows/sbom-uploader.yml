@@ -24,7 +24,7 @@ jobs:
 
     - name: Run sbom-uploader script
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.NETBOT_NH_SBOM_UPLOADER }}
         DEPENDENCY_TRACK_TOKEN: ${{ secrets.DEPENDENCY_TRACK_TOKEN }}
       run: |
         cd scripts
