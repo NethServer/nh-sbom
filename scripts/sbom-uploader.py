@@ -106,6 +106,14 @@ def upload_sbom(sbom, project_id):
         logger.warning(f"Failed to upload SBOM {sbom} to {project_id} (attempt {attempt + 1}/{max_retries}): {str(e)}")
   return {"error": error}
 
+def get_all_projects():
+  url = f"{DT_API_URL}/project?pageNumber=1&pageSize=10000"
+  headers = {"X-Api-Key": DEPENDENCY_TRACK_TOKEN, "Accept": "application/json"}
+  resp = requests.get(url, headers=headers)
+  if resp.status_code != 200:
+    return []
+  return resp.json()
+
 def get_project(project_name):
   url = f"{DT_API_URL}/project?pageNumber=1&pageSize=10000"
   headers = {"X-Api-Key": DEPENDENCY_TRACK_TOKEN, "Accept": "application/json"}
@@ -136,7 +144,7 @@ def create_project(project_name, parent_id=None, version=None, has_children=True
   }
   if parent_id:
     payload["parent"] = {"uuid": parent_id}
-  logger.debug(f"create_project {project_name} with parent {parent_id}, payload: {payload}")
+  logger.debug(f"create_project {project_name} with parent {parent_id}, version {version} payload: {payload}")
   resp = requests.put(url, headers=headers, json=payload)
   respo_data = resp.json()
   logger.debug(f"create_project: response code {resp.status_code} response data {respo_data}")
@@ -187,6 +195,8 @@ def process_asset(asset, repo_name, parent_id):
   logger.debug(f"Asset {asset_name} version {version} parent {parent_id}")
   if not project_id:
     project_id = create_project(project_name, parent_id, version, has_children=False)
+  else:
+    update_project_version(project_id, version)
 
   logger.debug(f"Uploading SBOM {sbom}. Project: {project_name} ({project_id}), Version: {version}")
   response = upload_sbom(sbom, project_id)
@@ -257,7 +267,8 @@ def main():
   for project in repos:
     # Create top-level project if it doesn't exist
     if not get_project(project)[0]:
-      create_project(project)
+      logger.debug(f"Creating top-level project {project}")
+      create_project(project, has_children=True)
     for repo_url in repos[project]:
       process_repo(project, repo_url)
 
