@@ -1,5 +1,5 @@
 {
-    "nethvoice": [
+    "nethvoice project": [
         "https://github.com/nethesis/nethcti-server",
         "https://github.com/nethesis/nethvoice-cti",
         "https://github.com/nethesis/nethvoice-report",
@@ -14,20 +14,20 @@
         "https://github.com/nethesis/satellite",
         "https://github.com/nethserver/nethlink"
     ],
-    "nethsecurity": [
+    "nethsecurity project": [
         "https://github.com/nethserver/nethsecurity",
         "https://github.com/nethserver/nethsecurity-controller",
         "https://github.com/nethserver/nethsecurity-ui",
         "https://github.com/NethServer/python3-nethsec"
     ],
-    "infra": [
+    "infra project": [
         "https://github.com/nethesis/parceler",
         "https://github.com/nethesis/icaro",
         "https://github.com/nethesis/windmill",
         "https://github.com/nethesis/legacy_backupd",
         "https://github.com/nethserver/my"
     ],
-    "ns8": [
+    "ns8 project": [
         "https://github.com/NethServer/ns8-core",
         "https://github.com/NethServer/ns8-metrics",
         "https://github.com/NethServer/ns8-samba",
