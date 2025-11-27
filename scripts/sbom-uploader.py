@@ -66,7 +66,15 @@ def get_latest_release(owner, repo):
   return resp.json()
 
 def download_asset(asset_url, filename):
-  headers = {"Accept": "application/octet-stream"}
+  # GitHub's browser_download_url does not support authentication headers for private
+  # repositories. To download from private repos we must call the API endpoint
+  # /repos/{owner}/{repo}/releases/assets/{asset_id} with the proper Accept header
+  # and Authorization token, as documented at:
+  # https://docs.github.com/en/rest/releases/assets
+  headers = {
+    "Accept": "application/octet-stream",
+    "Authorization": f"token {GITHUB_TOKEN}",
+  }
   resp = requests.get(asset_url, headers=headers, stream=True)
   if resp.status_code == 200:
     with open(filename, "wb") as f:
@@ -153,7 +161,11 @@ def update_project_version(project_id, version):
 
 def process_asset(asset, repo_name, parent_id):
   asset_name = asset["name"]
-  asset_url = asset["browser_download_url"]
+  # For private repositories we must use the authenticated API URL instead
+  # of browser_download_url. This URL requires the "application/octet-stream"
+  # Accept header and the Authorization token set in download_asset().
+  # Example: https://api.github.com/repos/{owner}/{repo}/releases/assets/{asset_id}
+  asset_url = asset.get("url") or asset.get("browser_download_url")
   sbom = f"./{asset_name}"
   if not download_asset(asset_url, sbom):
     logger.warning(f"Failed to download {asset_name}")
