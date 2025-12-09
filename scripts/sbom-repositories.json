@@ -59,6 +59,10 @@
         "https://github.com/NethServer/ns8-passbolt",
         "https://github.com/NethServer/ns8-minio",
         "https://github.com/NethServer/ns8-porthos",
-        "https://github.com/NethServer/ns8-matrix"
+        "https://github.com/NethServer/ns8-matrix",
+        "https://github.com/NethServer/ns8-ui-lib"
+    ],
+    "vue-components project": [
+        "https://github.com/nethesis/vue-components"
     ]
 }
