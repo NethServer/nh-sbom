@@ -16,6 +16,7 @@
     ],
     "nethsecurity project": [
         "https://github.com/nethserver/nethsecurity",
+        "https://github.com/nethserver/nethsecurity-api",
         "https://github.com/nethserver/nethsecurity-controller",
         "https://github.com/nethserver/nethsecurity-ui",
         "https://github.com/NethServer/python3-nethsec"
